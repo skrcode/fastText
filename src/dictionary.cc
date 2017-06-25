@@ -149,6 +149,13 @@ void Dictionary::computeNgrams(const std::string& word,
       }
     }
   }
+  std::cout<<word<<" "<<std::endl;
+  for (size_t i = 0; i < ngrams.size(); i++) 
+    std::cout<<ngrams[i]<<" ";
+  std::cout<<std::endl;
+  for (size_t i = 0; i < substrings.size(); i++) 
+    std::cout<<substrings[i]<<" ";
+  std::cout<<std::endl;
 }
 
 void Dictionary::computeNgrams(const std::string& word,

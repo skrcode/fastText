@@ -264,6 +264,7 @@ void FastText::supervised(Model& model, real lr,
 
 void FastText::cbow(Model& model, real lr,
                     const std::vector<int32_t>& line) {
+  //std::cout << "cbow starting" << std::endl;
   std::vector<int32_t> bow;
   std::uniform_int_distribution<> uniform(1, args_->ws);
   for (int32_t w = 0; w < line.size(); w++) {
@@ -271,6 +272,7 @@ void FastText::cbow(Model& model, real lr,
     bow.clear();
     for (int32_t c = -boundary; c <= boundary; c++) {
       if (c != 0 && w + c >= 0 && w + c < line.size()) {
+        //std::cout << "line[w+c] = " << line[w+c] << std::endl;
         const std::vector<int32_t>& ngrams = dict_->getNgrams(line[w + c]);
         bow.insert(bow.end(), ngrams.cbegin(), ngrams.cend());
       }
